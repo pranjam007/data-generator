@@ -1,0 +1,48 @@
+group 'com.discover.cpp.settlement'
+version = '0.0.1-SNAPSHOT'
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url nexusPublicRepoURL }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("com.discover.esqmci:discover-project-plugin:latest.release")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'discover'
+apply plugin: 'maven'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url nexusPublicRepoURL }
+}
+jar {
+    baseName = 'data-generator'
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile ('org.apache.hadoop:hadoop-client:2.8.1') {
+        exclude module: 'slf4j-log4j12'
+        exclude module: 'json-smart'
+    }
+    compile ('org.slf4j:slf4j-api:1.7.25')
+    compile ('org.springframework:spring-context:4.3.10.RELEASE')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+
+

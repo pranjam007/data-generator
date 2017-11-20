@@ -1,0 +1,100 @@
+[
+	{
+		"id":"cardNumber",
+		"dataType":"TXN",
+		"length":"19",
+		"format": "",
+		"enricher":"RandomNumericFieldDataEnricher"
+	},
+	{
+		"id":"transactionDte",
+		"dataType":"TXN",
+		"length":"8",
+		"format": "YYYYMMdd",
+		"enricher":"RandomDateFieldDataGenerator"
+	},
+	{
+		"id":"transactionTime",
+		"dataType":"TXN",
+		"length":"6",
+		"format": "HHmmss",
+		"enricher":"RandomDateFieldDataGenerator"
+	},
+	{
+		"id":"transactionAmount",
+		"dataType":"TXN",
+		"length":"12",
+		"format": "",
+		"enricher":"RandomAmountFieldDataEnricher"
+	},
+	{
+		"id":"transactionType",
+		"dataType":"TXN",
+		"length":"2",
+		"format": "",
+		"enricher":"RandomNumericFieldDataEnricher"
+	},
+	{
+		"id":"approvalCode",
+		"dataType":"TXN",
+		"length":"6",
+		"format": "",
+		"enricher":"RandomNumericFieldDataEnricher"
+	},
+	{
+		"id":"networkrefId",
+		"dataType":"TXN",
+		"length":"15",
+		"format": "",
+		"enricher":"RandomAlphaNumericFieldDataEnricher"
+	},
+	{
+		"id":"acquirerId",
+		"dataType":"BATCH",
+		"length":"11",
+		"format": "",
+		"enricher":"RandomNumericFieldDataEnricher"
+	},
+	{
+		"id":"merchantAccountNumber",
+		"dataType":"BATCH",
+		"length":"15",
+		"format": "",
+		"enricher":"RandomNumericFieldDataEnricher"
+	},
+	{
+		"id":"batchReferenceId",
+		"dataType":"BATCH",
+		"length":"8",
+		"format": "",
+		"enricher":"CounterBasedFieldDataEnricher"
+	},
+	{
+		"id":"acquirerCurrencyCode",
+		"dataType":"BATCH",
+		"length":"3",
+		"format": "",
+		"enricher":"RandomNumericFieldDataEnricher"
+	},
+	{
+		"id":"processorId",
+		"dataType":"FILE",
+		"length":"11",
+		"format": "",
+		"enricher":"RandomNumericFieldDataEnricher"
+	},
+	{
+		"id":"mailBox",
+		"dataType":"FILE",
+		"length":"7",
+		"format": "",
+		"enricher":"RandomAlphaNumericFieldDataEnricher"
+	},
+	{
+		"id":"timeStamp",
+		"dataType":"FILE",
+		"length":"26",
+		"format": "yyyy-MM-dd-HH.mm.ss.ssssss",
+		"enricher":"RandomDateFieldDataGenerator"
+	}
+]
