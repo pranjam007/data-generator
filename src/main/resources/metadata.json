@@ -7,7 +7,7 @@
 		"enricher":"RandomNumericFieldDataEnricher"
 	},
 	{
-		"id":"transactionDte",
+		"id":"transactionDate",
 		"dataType":"TXN",
 		"length":"8",
 		"format": "YYYYMMdd",
@@ -47,6 +47,13 @@
 		"length":"15",
 		"format": "",
 		"enricher":"RandomAlphaNumericFieldDataEnricher"
+	},
+	{
+		"id":"batchSeq",
+		"dataType":"BATCH",
+		"length":"8",
+		"format": "",
+		"enricher":"CounterBasedFieldDataEnricher"
 	},
 	{
 		"id":"acquirerId",
