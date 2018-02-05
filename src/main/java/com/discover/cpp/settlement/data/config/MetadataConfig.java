@@ -21,7 +21,14 @@ public class MetadataConfig {
     
     private File getInputStream() throws IOException {
         Resource resource = new ClassPathResource("/metadata.json");
-        File file = resource.getFile();
+        InputStream inputStream = resource.getInputStream();
+        File file = File.createTempFile("metadata", ".json");
+        try {
+            FileUtils.copyInputStreamToFile(inputStream, file);
+        } finally {
+            IOUtils.closeQuietly(inputStream);
+        }
+        //File file = resource.getFile();
         return file;
     }
 }
