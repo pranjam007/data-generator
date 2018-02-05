@@ -1,16 +1,12 @@
 group 'com.discover.cpp.settlement'
 version = '0.0.1-SNAPSHOT'
 
-buildscript {
-    ext {
-        springBootVersion = '1.5.3.RELEASE'
-    }
+buildscript {  
     repositories {
         mavenLocal()
         maven { url nexusPublicRepoURL }
     }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    dependencies {        
         classpath("com.discover.esqmci:discover-project-plugin:latest.release")
     }
 }
@@ -31,17 +27,26 @@ repositories {
 }
 jar {
     baseName = 'data-generator'
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version,
+                   'Main-Class': 'com.discover.cpp.settlement.data.FileDataGeneration'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web'
-    compile ('org.apache.hadoop:hadoop-client:2.8.1') {
+   compile ('org.apache.hadoop:hadoop-client:2.8.1') {
         exclude module: 'slf4j-log4j12'
         exclude module: 'json-smart'
     }
     compile ('org.slf4j:slf4j-api:1.7.25')
     compile ('org.springframework:spring-context:4.3.10.RELEASE')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.4'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.4'
+
 }
 
 
